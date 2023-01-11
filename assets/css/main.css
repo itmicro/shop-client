@@ -37,6 +37,9 @@ body{
 .justify-content-between {
   justify-content: space-between;
 }
+.justify-content-end {
+  justify-content: end;
+}
 
 .p-2 {
   padding: 10px
@@ -45,6 +48,12 @@ body{
 .m-2 {
   margin: 10px;
 }
+.m-4 {
+  margin: 20px;
+}
+.m-10 {
+  margin: 50px;
+}
 
 .vertical-lr {
   writing-mode: vertical-lr;
@@ -52,11 +61,10 @@ body{
 }
 
 .vertical-rl {
-  writing-mode: vertical-rl;
+  writing-mode: sideways-lr;
 }
 
 
-
 .align-self-center {
-  align-self: center;
+  align-self: center !important;
 }
