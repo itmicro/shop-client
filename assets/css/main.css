@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "SimpleSquare";
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("SimpleSquare"), url("~assets/fonts/SimpleSquare.woff2") format("woff2"), url("~assets/fonts/SimpleSquare.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Robtronika-Regular";
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("SimpleSquare"), url("~assets/fonts/Robtronika-Regular.woff2") format("woff2"), url("~assets/fonts/Robtronika-Regular.woff") format("woff");
+}
+
+
+body{
+  font-family: "Robtronika-Regular", normal;
+  font-size: 24px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.p-2 {
+  padding: 10px
+}
+
+.m-2 {
+  margin: 10px;
+}
+
+.vertical-lr {
+  writing-mode: vertical-lr;
+  
+}
+
+.vertical-rl {
+  writing-mode: vertical-rl;
+}
+
+
+
+.align-self-center {
+  align-self: center;
+}
