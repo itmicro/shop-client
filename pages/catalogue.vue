@@ -22,7 +22,7 @@
 
             <div class="wrap wrap--3">
                 <div class="container container--3">
-                    <p>03. Интернет-магазин</p>
+                    <p>03. Интернет магазин</p>
                 </div>
             </div>
 
@@ -310,11 +310,11 @@ p {
 
 }
 
-@media (max-width: 600px) {
+@media all and  (max-width: 600px) {
 
     /* … */
     .container {
-        width: 25 rem;
+        width: 20rem;
 
     }
 }

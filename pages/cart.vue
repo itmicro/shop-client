@@ -9,24 +9,26 @@
 
         <section id="slider">
             <div id="canvas-holder">
-                <div v-for="(item, index) in this.products.filter(function (a) {return a.category == '63bb6010e31a6de3bb3546ea' })"  :key="index">
-                <img id="slider-canvas" :src=item.imageUrl style="height: 80%;margin-top: 10%;width: 80%;margin-left: 10%;opacity: 0;">
+                <div v-for="(item, index) in this.products.filter(function (a) { return a.category == '63bb6010e31a6de3bb3546ea' })"
+                    :key="index">
+                    <img id="slider-canvas" :src=item.imageUrl
+                        style="height: 80%;margin-top: 10%;width: 80%;margin-left: 10%;opacity: 0;">
+                </div>
             </div>
-            </div>
-             
+
 
             <article>
                 <div class="slide-count">
                     <span class="index">
                         <span class="next"></span>
-                        <span class="current">0{{this.active+1}}</span>
+                        <span class="current">0{{ this.active + 1 }}</span>
                     </span>
                     <span class="line"></span>
                     <span class="total">0{{ this.length }}</span>
                 </div>
 
-                <div v-for="(item, index) in this.products.filter(function (a) {return a.category == '63bb6010e31a6de3bb3546ea' })" style="position: absolute;" :key="index"
-                    class="product-card">
+                <div v-for="(item, index) in this.products.filter(function (a) { return a.category == '63bb6010e31a6de3bb3546ea' })"
+                    style="position: absolute;" :key="index" class="product-card">
                     <h1 class="slide-title" style="margin-left: 0px;padding-left: 0px;font-size: 45px; ">
                         {{ item.title }}
                     </h1>
@@ -108,14 +110,14 @@ export default {
     data: () => ({
         length: 0,
         active: 0,
-        result:[]
+        result: []
     }),
     async mounted() {
         await this.fetchProducts();
 
-        this.result = this.products.filter(function (a) {return a.category == '63bb6010e31a6de3bb3546ea' })
+        this.result = this.products.filter(function (a) { return a.category == '63bb6010e31a6de3bb3546ea' })
         console.log(this.result)
-        console.log( this.result.length)
+        console.log(this.result.length)
         this.length = this.result.length
         // if (this.length < 10) {
         //     this.length = '0' + this.length
@@ -123,7 +125,7 @@ export default {
         const gsap = this.$gsap
         const whole = document.querySelectorAll('.product-card')[0]
         gsap.fromTo(whole, { opacity: 0 }, { opacity: 1, duration: 1 })
-        gsap.fromTo('img', { opacity: 0,x:-100,scaleY:0 }, {x:0,scaleY:1, opacity: 1, duration: 1,delay:1 })
+        gsap.fromTo('img', { opacity: 0, x: -100, scaleY: 0 }, { x: 0, scaleY: 1, opacity: 1, duration: 1, delay: 1 })
     },
     computed: {
         ...mapGetters({
@@ -132,7 +134,7 @@ export default {
         ...mapGetters({
             categories: "categories/item",
         }),
-        
+
     },
     methods: {
         ...mapActions({
@@ -141,35 +143,39 @@ export default {
         ...mapActions({
             fetchCategories: "categories/fetchOne",
         }),
-        prev(){
-            const gsap = this.$gsap
-            let whole = document.querySelectorAll('.product-card')[this.active]
-            gsap.fromTo(whole, { opacity: 1,y:0 }, {y:30, opacity: 0, duration: 1 })
-            this.active--
-            console.log(this.active)
-            if(this.active < 0){
-                this.active=this.length-1
-            }
-        
-            let whole1 = document.querySelectorAll('.product-card')[this.active]
-            gsap.fromTo(whole1, { opacity: 0,y:-30 }, {y:0, opacity: 1, duration: 1,delay:0.5 })
-        },
-        next(){
+        prev() {
             const gsap = this.$gsap
             let whole = document.querySelectorAll('.product-card')[this.active]
             let whole2 = document.querySelectorAll('img')[this.active]
-            gsap.fromTo(whole, { opacity: 1,y:0 }, {y:30, opacity: 0, duration: 1 })
-            gsap.fromTo(whole2, { opacity: 1,y:0 }, {y:30, opacity: 0, duration: 1 })
-            this.active++
+            gsap.fromTo(whole, { opacity: 1, y: 0 }, { y: 30, opacity: 0, duration: 1 })
+            gsap.fromTo(whole2, { opacity: 1, y: 0 }, { y: 30, opacity: 0, duration: 1 })
+            this.active--
             console.log(this.active)
-            if(this.active >= this.length){
-                this.active=0
+            if (this.active < 0) {
+                this.active = this.length - 1
             }
-        
+
             let whole1 = document.querySelectorAll('.product-card')[this.active]
             let whole3 = document.querySelectorAll('img')[this.active]
-            gsap.fromTo(whole1, { opacity: 0,y:-30 }, {y:0, opacity: 1, duration: 1,delay:0.5 })
-            gsap.fromTo(whole3, { opacity: 0,y:-30 }, {y:0, opacity: 1, duration: 1,delay:0.5 })
+            gsap.fromTo(whole1, { opacity: 0, y: -30 }, { y: 0, opacity: 1, duration: 1, delay: 0.5 })
+            gsap.fromTo(whole3, { opacity: 0, y: -30 }, { y: 0, opacity: 1, duration: 1, delay: 0.5 })
+        },
+        next() {
+            const gsap = this.$gsap
+            let whole = document.querySelectorAll('.product-card')[this.active]
+            let whole2 = document.querySelectorAll('img')[this.active]
+            gsap.fromTo(whole, { opacity: 1, y: 0 }, { y: 30, opacity: 0, duration: 1 })
+            gsap.fromTo(whole2, { opacity: 1, y: 0 }, { y: 30, opacity: 0, duration: 1 })
+            this.active++
+            console.log(this.active)
+            if (this.active >= this.length) {
+                this.active = 0
+            }
+
+            let whole1 = document.querySelectorAll('.product-card')[this.active]
+            let whole3 = document.querySelectorAll('img')[this.active]
+            gsap.fromTo(whole1, { opacity: 0, y: -30 }, { y: 0, opacity: 1, duration: 1, delay: 0.5 })
+            gsap.fromTo(whole3, { opacity: 0, y: -30 }, { y: 0, opacity: 1, duration: 1, delay: 0.5 })
         }
     },
 }
@@ -635,7 +641,13 @@ header .basket span {
         right: -50px;
         transform: translateY(-50%);
     }
+
+
+
 }
+
+
+
 
 #slider .slide-nav button {
     display: block;
@@ -751,8 +763,18 @@ header .basket span {
 .expand {
     display: none;
 }
+
 #slider article .btn {
     margin-top: 30px;
-    
+
+}
+
+@media screen and (max-width: 700px) {
+
+
+    #slider article .btn {
+        margin-top: 0px;
+    }
+
 }
 </style>

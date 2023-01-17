@@ -52,7 +52,7 @@
           <div class="catalog_text" v-gsap.fromTo="[
             { scale: 0 },
             { scale: 1, duration: 1, delay: 1 }
-          ]" >МЫ ДЕЛАЕМ</div>
+          ]" >смотреть услуги</div>
            <div class="lines11 lines22"></div>
           <div class="lines11 lines23"></div>
         </nuxt-link>
@@ -264,7 +264,7 @@ a{
 
 .middle {
   margin: 0;
-  margin-top: 35vh;
+  margin-top: 30vh;
   height: 20vh;
 }
 
@@ -274,7 +274,11 @@ a{
     top: 20px;
     left: 85vw;
   }
-
+  .middle {
+  
+  margin-top: 30vh;
+  
+}
   /* .catalog {
     position: absolute;
     top: 100px;
