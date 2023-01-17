@@ -1,9 +1,9 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'clientSide',
+    title: 'Spb-Site',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'ru'
     },
     meta: [
       { charset: 'utf-8' },
@@ -15,14 +15,19 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
+  target: 'server',
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/css/main.css'
   ],
+  loading: {
+    color: 'white',
+    height: '1px'
+  },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/axios.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -41,10 +46,16 @@ export default {
     '@nuxtjs/axios',
   ],
 
+  server: {
+    host: process.env.NUXT_APP_HOST, // default: localhost
+    port: process.env.NUXT_APP_PORT
+    //process.env.NUXT_APP_PORT // default: 3000
+  },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: process.env.NUXT_APP_BASE_URL,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
